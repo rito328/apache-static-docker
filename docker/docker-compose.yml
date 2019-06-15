@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    container_name: web_app
+    build: ./
+    image: web_app
+    ports:
+      - 80:80
+    volumes:
+      - ../src:/var/www/html
+      - ./conf.d:/etc/httpd/conf.d
+      - ./init:/var/www/init
+    stdin_open: true
+    tty: true
+    privileged: true
